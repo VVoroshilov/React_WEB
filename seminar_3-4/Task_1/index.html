@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8" />
+    <title>Task 3</title>
+    <link rel="stylesheet" href="style.css">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.25.0/babel.min.js"></script>
+
+    <script  type="text/babel">
+        let expression = "";
+        function calculate() {
+            console.log(expression);
+            try{
+                expression = eval(expression);
+            }
+            catch (e){
+                expression = "Error";
+            }
+            if (typeof expression != "number"){
+                expression = "Error";
+            }else{
+                expression = Math.round(expression * 1000) / 1000;
+            }
+            if (! isFinite(expression)){
+                expression = "Error";
+            }
+            expression = expression.toString();
+            console.log(expression);
+
+            ReactDOM.render(
+                <input type="text" id="answer" placeholder={ expression } name="displayResult" />,
+                document.getElementById("display")
+            );
+        };
+
+        function enter(value){
+            if (value == ' '){
+                console.log('clear')
+                expression = "";
+                ReactDOM.render(
+                    <input type="text" id="answer" placeholder="_" name="displayResult" />,
+                    document.getElementById("display")
+                );
+            }else{
+                expression = expression.concat(value);
+                console.log(expression);
+                ReactDOM.render(
+                    <input type="text" id="answer" placeholder={ expression } name="displayResult" />,
+                    document.getElementById("display")
+                );
+            }
+        };
+
+        // Не работает. Непонятно, почему.
+        // function clear(){
+        //     console.log('used')
+        //     expression = " ";
+        //     console.log(expression);
+        //     ReactDOM.render(
+        //         <input type="text" id="answer" placeholder={ expression } name="displayResult" />,
+        //         document.getElementById("display")
+        //     );
+        // };
+
+    </script>
+</head>
+
+<body>
+<div class="container">
+    <form name="form">
+        <div class="display" id="display">
+            <input type="text" id="answer" placeholder="_" name="displayResult" />
+        </div>
+        <div class="buttons">
+
+            <div class="row">
+                <input type="button" value="C" onclick="enter(' ')">
+                <input type="button" value="(" onclick="enter('(')">
+                <input type="button" value=")" onclick="enter(')')">
+                <input type="button" value="^" onclick="enter('**')">
+            </div>
+
+            <div class="row">
+                <input type="button" name="b7" value="7" onclick="enter('7')">
+                <input type="button" name="b8" value="8" onclick="enter('8')">
+                <input type="button" name="b9" value="9" onclick="enter('9')">
+                <input type="button" name="addb" value="+" onclick="enter('+')">
+            </div>
+
+            <div class="row">
+                <input type="button" name="b4" value="4" onclick="enter('4')">
+                <input type="button" name="b5" value="5" onclick="enter('5')">
+                <input type="button" name="b6" value="6" onclick="enter('6')">
+                <input type="button" name="subb" value="-" onclick="enter('-')">
+            </div>
+
+            <div class="row">
+                <input type="button" name="b1" value="1" onclick="enter('1')">
+                <input type="button" name="b2" value="2" onclick="enter('2')">
+                <input type="button" name="b3" value="3" onclick="enter('3')">
+                <input type="button" name="mulb" value="*" onclick="enter('*')">
+            </div>
+
+            <div class="row">
+                <input type="button" name="b0" value="0" onclick="enter('0')">
+                <input type="button" name="potb" value="." onclick="enter('.')">
+                <input type="button" name="divb" value="/" onclick="enter('/')">
+                <input type="button" class="red" value="=" onclick="calculate()">
+            </div>
+
+        </div>
+
+    </form>
+</div>
+</body>
+
+</html>
