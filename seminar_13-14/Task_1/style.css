@@ -1,0 +1,55 @@
+.table1 {
+  font-family:sans-serif ;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 0 2px rgb(51, 47, 47);
+  color: black;
+  width: 50%;
+  height: 555px;
+  padding-top: 3%;
+  margin-top: 8%;
+  }
+  .title_txt {
+  font-size: 23px;
+  font-family: sans-serif;
+  }
+  .normal_txt {
+  font-size: normal;
+  font-family: sans-serif;
+  }
+  .button_facebook {
+  width: 260px;
+  height: 30px;
+  border-radius: 4px;
+  border: 0px;
+  background-color: #3b5998;
+  color: white
+  }
+  .button_google {
+  width: 260px;
+  height: 30px;
+  border-radius: 4px;
+  border: 0px;
+  background-color: #db4437;
+  color: white;
+  }
+  .font {
+  font-family: sans-serif;
+  }
+  .submit {
+  width: 260px;
+  height: 30px;
+  border-radius: 4px;
+  border: 0px;
+  background-color: rgb(18, 146, 18);
+  color: white;
+  }
+  .small_txt {
+  font-family: sans-serif;
+  font-size: 13px;
+  color: gray;
+  }
+
+  #root {
+    flex:1
+  }

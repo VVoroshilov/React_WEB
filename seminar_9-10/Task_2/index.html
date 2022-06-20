@@ -1,0 +1,76 @@
+<!--<!DOCTYPE html>-->
+<!--<html>-->
+<!--<head>-->
+<!--  <meta charset="utf-8" />-->
+<!--</head>-->
+<!--<body>-->
+<!--<div id="app"></div>-->
+
+<!--<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>-->
+<!--<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>-->
+<!--<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>-->
+<!--<script type="text/babel">-->
+<!--  function App(){-->
+<!--    const [count, setCount] = React.useState(0);-->
+<!--    return (<div>-->
+<!--      <p>Кликов: {count}</p>-->
+<!--      <button onClick={() => setCount(count + 1)}>-->
+<!--        Кнопка-->
+<!--      </button>-->
+<!--    </div>);-->
+<!--  }-->
+
+<!--  ReactDOM.createRoot(-->
+<!--          document.getElementById("app")-->
+<!--  )-->
+<!--          .render(-->
+<!--                  <App />-->
+<!--          )-->
+<!--</script>-->
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+</head>
+<body>
+<div id="app"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">
+  function App(){
+    const [name, setName] = React.useState();
+    const [surname, setSurname] = React.useState();
+    const [age, setAge] = React.useState();
+    function user_input() {
+      setName(document.getElementsByTagName("input")[0].value);
+      setSurname(document.getElementsByTagName("input")[1].value);
+      setAge(document.getElementsByTagName("input")[2].value);
+
+    }
+    return (<div>
+      <p>Имя: {name}</p>
+      <p>Фамилия: {surname}</p>
+      <p>Возраст: {age}</p>
+      <p>Имя: <input type="text"/></p>
+      <p>Фамилия: <input type="text"/></p>
+      <p>Возраст: <input type="number" min="10" max="110" /></p>
+      <button id="btn" onClick={user_input}>
+        Записать
+      </button>
+    </div>);
+  }
+
+  ReactDOM.createRoot(
+          document.getElementById("app")
+  )
+          .render(
+                  <App />
+          )
+</script>
+</body>
+</html>
